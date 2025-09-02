@@ -15,10 +15,10 @@ O sistema possui uma tela de login que valida credenciais armazenadas em variáv
 - *Ferramentas:* VS Code, GitHub: https://github.com/ArthurPeruchi/Trabalho-SD-C1-Dupla-ArthurGabriel-GuilhermeQuaglio;
 
 ## Estrutura do Projeto
-├── 🗁 backend/	# Código-fonte principal.
-├── 🗁 frontend/	# Aplicação web.
-├── 🗁 .gitignore/	# Ficheiro de configuração.
-└── 🗁 README.MD/	# Este arquivo.
+├── 🗁 backend/	# Código-fonte principal.  
+├── 🗁 frontend/	# Aplicação web.  
+├── 🗁 .gitignore/	# Ficheiro de configuração.  
+└── 🗁 README.MD/	# Este arquivo.  
 
 ## Como Executar
 # No Backend
