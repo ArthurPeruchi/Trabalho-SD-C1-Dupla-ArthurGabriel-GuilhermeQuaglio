@@ -16,8 +16,11 @@ O sistema possui uma tela de login que valida credenciais armazenadas em variáv
 
 ## Estrutura do Projeto
 ├── 🗁 backend/	# Código-fonte principal.  
+|
 ├── 🗁 frontend/	# Aplicação web.  
-├── 🗁 .gitignore/	# Ficheiro de configuração.  
+|
+├── 🗁 .gitignore/	# Ficheiro de configuração.
+|  
 └── 🗁 README.MD/	# Este arquivo.  
 
 ## Como Executar
