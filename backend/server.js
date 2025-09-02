@@ -15,9 +15,9 @@ const usuarios = [
 app.post("/login", (req, res) => {
   const { usuario, senha } = req.body;
 
-  // Se não mandou usuário ou senha → requisição inválida
+  // Se não mandou usuário ou senha → erro 401 (requisição inválida)
   if (!usuario || !senha) {
-    return res.status(400).json({ 
+    return res.status(401).json({ 
       success: false, 
       message: "Requisição inválida: usuário e senha são obrigatórios." 
     });
@@ -36,7 +36,7 @@ app.post("/login", (req, res) => {
   }
 
   // Se deu certo → 200 OK
-  return res.json({ success: true, message: "Login bem-sucedido!" });
+  return res.status(200).json({ success: true, message: "Login bem-sucedido!" });
 });
 
 // Subindo o servidor

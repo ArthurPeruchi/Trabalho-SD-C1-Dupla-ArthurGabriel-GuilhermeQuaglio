@@ -9,7 +9,6 @@ export default function Login() {
 
   const [usuario, setUsuario] = useState("");
   const [senha, setSenha] = useState("");
-  const [mensagem, setMensagem] = useState("");
   const [mostrarSenha, setMostrarSenha] = useState(false);
 
   const [Gato] = useState("/cat.png");
@@ -22,35 +21,46 @@ export default function Login() {
         body: JSON.stringify({ usuario, senha })
       });
 
-      const data = await response.json();
-
-      if (data.success) {
+    if (response.status === 200) {
+        const data = await response.json();
         Swal.fire({
             title: "Login realizado com sucesso!",
-            text: "Parabéns! :)", iconColor: "#1976d2",
+            text: "Parabéns! :)",
             icon: "success",
+            iconColor: "#1976d2",
             showConfirmButton: false,
-            timer: 2500, timerProgressBar: true
+            timer: 2500,
+            timerProgressBar: true
         });
         navigate("/sucesso");
-      }
-       else {
+        } 
+        else if (response.status === 400) {
         Swal.fire({
             title: "Credenciais Incorretas!",
             text: "Usuário ou senha incorretos. Por favor, tente novamente.",
             icon: "error",
             showConfirmButton: false,
         });
-      }
-    } catch (error) {
+        } 
+        else if (response.status === 401) {
         Swal.fire({
-            title: "Erro de Conexão",
-            text: "Ops! Parece que ocorreu um erro de conexão com o nosso servidor. Tente novamente!",
-            icon: "error", iconColor: "#e08e28",
-            timer: 5000, timerProgressBar: true,
+            title: "Credenciais ausentes!",
+            text: "Você precisa informar usuário e senha para continuar.",
+            icon: "warning",
+            iconColor: "#e08e28",
             showConfirmButton: false,
         });
-        setMensagem(`⚠️ Erro de conexão com o servidor.`);
+        }
+    } catch (error) {
+        Swal.fire({
+        title: "Erro de Conexão",
+        text: "Ops! Parece que ocorreu um erro de conexão com o nosso servidor. Tente novamente!",
+        icon: "error",
+        iconColor: "#e08e28",
+        timer: 5000,
+        timerProgressBar: true,
+        showConfirmButton: false,
+        });
     }
   };
 
@@ -123,7 +133,6 @@ export default function Login() {
             >
                 Entrar
             </button>
-            <p>{mensagem}</p>
         </div>
 
         <footer
