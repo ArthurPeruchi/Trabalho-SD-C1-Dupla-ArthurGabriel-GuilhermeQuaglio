@@ -34,7 +34,7 @@ export default function Login() {
         });
         navigate("/sucesso");
         } 
-        else if (response.status === 400) {
+        else if (response.status === 401) {
         Swal.fire({
             title: "Credenciais Incorretas!",
             text: "Usuário ou senha incorretos. Por favor, tente novamente.",
@@ -42,9 +42,9 @@ export default function Login() {
             showConfirmButton: false,
         });
         } 
-        else if (response.status === 401) {
+        else if (response.status === 400) {
         Swal.fire({
-            title: "Credenciais ausentes!",
+            title: "Credenciais Ausentes!",
             text: "Você precisa informar usuário e senha para continuar.",
             icon: "warning",
             iconColor: "#e08e28",
